@@ -12,7 +12,20 @@
     transition: all 0.3s ease-out;
 }
 
-.dltImage {
+.Modal {
+    display: grid;
+}
+
+.modalTitle,
+.modalText {
+    padding: 10px;
+}
+
+.modalTitle {
+    border-bottom: 1px solid darkgrey;
+}
+
+.closeBtn {
     cursor: pointer;
     width: 20px;
     height: 20px;
@@ -20,16 +33,9 @@
     border-radius: 50%;
 }
 
-.dltImage:active {
+.closeBtn:active {
     box-shadow: 0 0 0 0 rgba(50, 50, 50, 0.75);
     transform: translateY(3px);
-
-}
-
-.modalTitle {
-    display: grid;
-    grid-template-columns: auto 30px;
-
 }
 
 @media (min-width: 600px) {
