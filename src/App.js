@@ -1,35 +1,48 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Modal from "./ui/Modal/Modal";
-import imgUrl from "./ui/Ico_close.png"
+import ShowAlertBtn from "./ui/Button/ShowAlertBtn";
+
 
 class App extends Component {
-  state = {
-    show: true,
-    modalTitle: "Some kinda modal title",
-    modalText: "This is modal content",
-  };
+    state = {
+            showAlertW: false,
+        };
 
-  closed() {
-    alert('Modal is closed');
-  }
-  modalShow() {
-    let copy = this.state.show;
-    copy = false;
-  }
-  render() {
-    return (
-      <div className="App">
-        <Modal
-            show={this.modalShow}
-            closed={this.closed}
-            title={this.state.modalTitle}
-            text={this.state.modalText}
-            imgUrl={imgUrl}
-        />
-      </div>
-    );
-  }
+
+    closed = () => {
+        let copy = this.state;
+        copy.showAlertW = false;
+        this.setState({copy});
+    };
+
+    continued = () => {
+        alert('You pressed Continue')
+    };
+
+    modalShow = () => {
+        const copy = this.state;
+        copy.showAlertW = true;
+        this.setState({copy})
+    };
+
+    render() {
+
+        return (
+            <div className="App">
+
+                <ShowAlertBtn onClickBtn={this.modalShow}/>
+                <Modal
+                    show={this.state.showAlertW}
+                    title={"Some kinda modal title"}
+                    text={"This is modal content"}
+                    config={[
+                        {type: 'Success', label: 'Continue', clicked: this.continued},
+                        {type: 'Danger', label: 'Close', clicked: this.closed}
+                    ]}/>
+            </div>
+        );
+    }
 }
 
 export default App;

@@ -1,6 +1,5 @@
 
 .Button {
-    background-color: transparent;
     border: none;
     color: white;
     outline: none;
@@ -9,17 +8,28 @@
     padding: 10px;
     margin: 10px;
     font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 3px 3px 1px 0px rgba(50, 50, 50, 0.75);
 }
 
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
+
+.Button:active {
+    box-shadow: 0 0 0 0 rgba(50, 50, 50, 0.75);
+    transform: translateY(3px);
 }
 
 .Success {
-    color: #5C9210;
+    color: #fff;
+    background: blue;
 }
 
 .Danger {
-    color: #944317;
+    color: #fff;
+    background: red;
+}
+
+.showAlert {
+    margin: 30% auto;
+    padding: 10px;
+    background: mediumaquamarine;
 }
